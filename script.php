@@ -1,31 +1,37 @@
 <?php
-$servername = 'localhost';
-$username = 'root';
-$password = 'oussemaest19';
-$conn = new mysqli($servername, $username, $password);
-if($conn->connect_error){
-die('Erreur : ' .$conn->connect_error);}
-else 
-{
+
+  include("db_connect.php");
   $result = $conn->query("SELECT * FROM projet.session ");
-  foreach ($result as $row) {
+if ( $_SERVER['REQUEST_METHOD']=='Post')
+{
+  foreach ($result as $row) 
+{
     if ($row['Nom']==$_POST['username'])
       {
         if($row["Password"]==$_POST['password'])
          {
           session_start();
           $_SESSION['Nom']=$_POST["Username"] ; 
-          header('Location: http://www.facebook.com');
-          exit();
+          $_SESSION['Role']=$row['Role'];
+          
          
          }
         else
         {
           echo 'mot de pass incorrect'; 
+          header('Refresh: 6 ; index.html');
         }
       }
-       
+    else
+       {
+        echo "nom d'utilisateur n'existe pas ";
+        header('Refresh: 6 ; index.html');
+       }
+    
   }
-}
+}  
+    
+  
+
 
 ?>
