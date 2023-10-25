@@ -1,37 +1,48 @@
 <?php
-
-  include("db_connect.php");
-  $result = $conn->query("SELECT * FROM projet.session ");
-if ( $_SERVER['REQUEST_METHOD']=='Post')
+include ("db_connect.php"); 
+$query ="SELECT* FROM projet.session";
+$result=$conn->query($query);
+$a=FALSE;
+foreach($result as $row) 
 {
-  foreach ($result as $row) 
-{
-    if ($row['Nom']==$_POST['username'])
-      {
-        if($row["Password"]==$_POST['password'])
-         {
-          session_start();
-          $_SESSION['Nom']=$_POST["Username"] ; 
-          $_SESSION['Role']=$row['Role'];
-          
+   
+   if ($_POST["Nom"]==$row["Nom"])
+    {
+      
+      if($_POST["Password"]==$row["Password"])
+        {
          
-         }
+         
+
+         session_start();
+         $_SESSION["Nom"]=$_POST["Nom"];
+         $_SESSION["Role"]=$row["Role"];
+         $a=TRUE;
+         if ($_SESSION["Role"]== 1)
+            {
+              include("admin.php");
+            }   
+         elseif($_SESSION["Role"]== 0)
+            {
+              include("user.php");
+            }  
+        }
         else
         {
-          echo 'mot de pass incorrect'; 
-          header('Refresh: 6 ; index.html');
+           echo 'mot de passe incorrecte';
+           $a=TRUE; 
+           
         }
-      }
-    else
-       {
-        echo "nom d'utilisateur n'existe pas ";
-        header('Refresh: 6 ; index.html');
-       }
-    
-  }
-}  
-    
+        
+        }
+      
+    }
+if (!$a)
+{
   
+  echo "utilisateur n'existe pas";
+}
+
 
 
 ?>

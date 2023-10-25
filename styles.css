@@ -4,9 +4,49 @@
     align-items: center;
     height: 100vh; /* This makes the container take up the full height of the viewport */
     text-align: center; /* Center the text inside the container */
+    color: black;
+    
 }
-.body {
-color: black;
-background-color: aqua;
+    
 
+.body
+{
+    background-image: url("images/image1.jpeg" );
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}   
+.Button
+{
+color: green;
+
+}
+.menu 
+{
+    display: flex;
+    width: 60%;
+    height: 80%;
+    background-color: #f0f0f0;
+    text-align: center;
+    padding: 15px;
+}
+.partie1 {
+    width: 70%;
+    background-color: #f0f0f0;
+    height: 100%;
+}
+
+.partie2 {
+    width: 30%;
+    height: 100%;
+    background-image: url("images/image2.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+   
+}
+.navbar
+{
+width: 100%;
+height:auto;
+background-color: red;
 }

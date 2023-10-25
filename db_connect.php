@@ -1,9 +1,12 @@
 <?php
-
-$servername = 'localhost';
-$username = 'root';
-$password = 'oussemaest19';
-$conn = new mysqli($servername, $username, $password);
-if($conn->connect_error){
-die('Erreur : ' .$conn->connect_error);}
+$Host= "localhost";
+$User= "root";
+$Password="oussemaest19";
+$conn= new mysqli($Host,$User,$Password);
+if (!$conn)
+{
+    echo "not connected";
+    die("La connexion a échoué : " . mysqli_connect_error());
+}
+ 
 ?>
