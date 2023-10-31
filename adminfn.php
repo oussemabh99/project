@@ -16,19 +16,27 @@
         </ul>
     </nav>
     <div class="barre">
-
+    
     </div>
     <div class="container">
         <div class="menu">
             <div class="partie1">
               <h2>MENU</h2>
-              
+              <form action= "userfn.php" method= "">
+                <button type="submit" class="Button2" name="switch to user  ">user_mode</button>
+                
+              </form>
+              <form action= " management_user.php" method = "">
+                <button type="submit" class="Button2" name= "management_user">management_user</button>
+              </form>
+                
             </div>
             <div class="partie2">
                <h2>Option</h2>
                <p>Contenu de la partie 2.</p>
             </div> 
         </div> 
-    </div> 
+    </div>
+    <?php echo $_SESSION["Nom"];?> 
 </body>
 </html>
