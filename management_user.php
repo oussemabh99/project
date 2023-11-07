@@ -14,7 +14,7 @@
     
     <div class="container">
         <div class="get_zone">
-        <form action= "api_user.php" method = "POST">
+        <form action= "api_user1.php" method = "POST">
                 <h1>ajouter</h1>
                 <label for="username">Username:</label>
                 <input type="text" id="username" name="Nom" required class="champ1">
@@ -32,13 +32,13 @@
         </form>
                  <div>
         
-                     <form action= "api_user" method = "GET">
+                     <form action= "api_user1.php" method = "GET">
                      <h1>show</h1>
                      <button type="submit" class="Button">show_all_users</button>
                      </form>
                 </div>
                 <div>
-                    <form action="api_user" method="POST">
+                    <form action="api_user2.php" method="POST">
                         <h1> Update </h1>
                         <label for="username">Username:</label>
                         <input type="text" id="username" name="Nom" required class="champ1">
@@ -50,8 +50,22 @@
                               <option value= 1 >Administrateur</option>
                               <option value= 0 >user</option>
                         </select>
+                        <button type="submit" class="Button" name="update">Update</button>
+                    </form>
                 </div>
-
+                <div>
+                    <form action="api_user2.php" method="GET">
+                    <h1> Delete</h1>
+                    <label for="username">Username:</label>
+                    <select name="name" id="name" >
+                           <?php
+                           include('sql_query.php');
+                           foreach($result as $row) {
+                           ?>
+                           <option><?php echo $row['Nom'];}?></option> 
+                    </select>
+                    <button type="submit" class="Button" name="delete">Delete</button>
+                </div>
         </div> 
         
     </div>
