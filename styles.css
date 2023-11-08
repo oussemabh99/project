@@ -61,3 +61,17 @@ background-color: red;
 background-color: blue;
 
 }
+.Colonne1
+{
+    height: 100%;
+    margin: 0;
+    display: flex;
+    background-color: white;
+}
+.Colonne2
+{
+    flex: 2;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    background-color: black;
+}

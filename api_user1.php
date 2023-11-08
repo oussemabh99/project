@@ -12,6 +12,19 @@ include ('db_connect.php');
         if($result)
           {
             echo("ajouté");
+            $aa=mkdir("./users/".$_POST['Nom'],0777);
+               
+            if($aa)
+            {
+              echo 'dossier créeé';
+            }
+            else
+            { 
+              echo 'non créeé';
+              echo '<br>';
+              $error = error_get_last();
+              echo $error['message'];
+            }
           }
         else
          {

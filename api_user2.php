@@ -6,7 +6,8 @@ if($_SERVER['REQUEST_METHOD']=='GET')
 $sql = 'DELETE from projet.session WHERE Nom="'.$_GET['name'].'"';
 $result=$conn->query($sql);
 if ($result)
-{
+{   
+    rmdir("./users/".$_GET['name']);
     echo "deleted";
 }   
 else
